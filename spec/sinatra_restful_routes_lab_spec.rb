@@ -102,19 +102,19 @@ describe "Recipe App" do
       expect(page.body).to include("</form>")
     end
 
-#    it "posts the form back to create a new recipe" do
-#
-#      fill_in :name, :with => "Enchiladas con Salsa Verde"
-#      fill_in :ingredients, :with => "Tortillas, Queso Blanco, Tomatillos, Onion, Garlic, Black beans, Cilantro"
-#      fill_in :cook_time, :with => "20 minutes"
+    it "posts the form back to create a new recipe" do
 
-#      page.find(:css, "[type=submit]").click
+      fill_in :name, :with => "Enchiladas con Salsa Verde"
+      fill_in :ingredients, :with => "Tortillas, Queso Blanco, Tomatillos, Onion, Garlic, Black beans, Cilantro"
+      fill_in :cook_time, :with => "20 minutes"
 
-#      expect(page).to have_content("Enchiladas con Salsa Verde")
-#      expect(page).to have_content("Tortillas, Queso Blanco, Tomatillos, Onion, Garlic, Black beans, Cilantro")
-#      expect(page).to have_content("20 minutes")
+      page.find(:css, "[type=submit]").click
 
-#    end
+      expect(page).to have_content("Enchiladas con Salsa Verde")
+      expect(page).to have_content("Tortillas, Queso Blanco, Tomatillos, Onion, Garlic, Black beans, Cilantro")
+      expect(page).to have_content("20 minutes")
+
+    end
   end
 
   describe "creating a new recipe" do
