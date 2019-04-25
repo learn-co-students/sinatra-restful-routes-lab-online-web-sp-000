@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Recipe</title>
+</head>
+<body>
+  <form method="POST" action="/recipes">
+    <p>
+      <label for="name">Recipe name:</label>
+      <input type="text" name="name" id="name" />
+    </p>
+    <p>
+      <label for="ingredients">Ingredients:</label>
+      <textarea name="ingredients" id="ingredients"></textarea>
+    </p>
+    <p>
+      <label for="cook_time">Cooking Time:</label>
+      <input type="text" name="cook_time" id="cook_time" />
+    </p>
+    <p>
+      <input type="submit" id="submit">
+    </p>
+  </form>
+</body>
+</html>
