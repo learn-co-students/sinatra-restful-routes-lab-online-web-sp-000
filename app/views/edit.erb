@@ -1,0 +1,33 @@
+<h2>Edit <%= @recipe.name %></h2>
+
+<h1>You Know What, This Could Use Something...</h1>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <div class="form-group">
+        <h3>
+            <label for="name">What Are You Making Now?</label>
+            <input type="text" name="name" value="<%= @recipe.name %>">
+        </h3>
+    </div>
+
+    <div class="form-group">
+        <h3>
+            <label for="ingredients">What's In That?</label>
+            <input type="text" name="ingredients" value="<%= @recipe.ingredients %>">
+        </h3>
+    </div>
+
+    <div class="form-group">
+        <h3>
+            <label for="cook_time">How Much Longer?</label>
+            <input type="text" name="cook_time" value="<%= @recipe.cook_time %>"> minutes
+        </h3>
+    </div>
+
+    <div class="">
+        <input type="submit" value="Submit">
+    </div>
+
+</form>
