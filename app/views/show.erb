@@ -8,10 +8,16 @@
 
     <form action="/recipes/<%= @recipe.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete">
+    <input type="submit" value="Delete">
     </form>
 
-    
+    <form method="GET" action="/recipes/<%= @recipe.id %>/edit">
+    <input type="submit" id="submit" value="Edit">
+    </form>
+
+    <form method="GET" action="/recipes">
+    <input type="submit" id="submit" value="Recipes">
+    </form>
 
   </body>
 </html>

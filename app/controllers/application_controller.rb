@@ -5,6 +5,9 @@ class ApplicationController < Sinatra::Base
   end
 
   # code actions here!
+  get '/' do 
+    redirect to "/recipes"
+  end 
 
   # Show all recipes in index
   get '/recipes' do 
