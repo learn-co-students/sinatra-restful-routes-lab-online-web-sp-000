@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get '/articles/:id' do
+  get '/recipes/:id' do
 
    @recipe = Recipe.find(params[:id])
 
