@@ -6,15 +6,39 @@ class ApplicationController < Sinatra::Base
 
   # code actions here!
   get "/" do
-    :index
+    erb :index
   end
-  
+
+  get "/:id" do
+    @recipe = Recipe.find(params[:id])
+    erb :show
+  end
+
   get "/new" do
     :new
   end
 
-  post "/recipes" do
-    redirect "/"
+  get "/:id/edit" do
+    @recipe = Recipe.find(params[:id])
+    erb :edit
   end
+
+  post "/recipes" do
+    Recipe.new(params)
+    if recipe.save
+      redirect "/"
+    end
+  end
+
+  patch "/:id" do
+
+  end
+
+  delete "/:id" do
+
+  end
+
+
+end
 
 end
