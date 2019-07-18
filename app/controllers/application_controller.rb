@@ -40,6 +40,11 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
+  delete '/recipes/:id' do
+    @recipe.destroy
+    redirect to '/recipes'
+  end
+
   private
     def get_id_from_path(path)
       #if an edit request than is different than any other request.
@@ -49,8 +54,5 @@ class ApplicationController < Sinatra::Base
         path.split('/').last.to_i
       end
     end
-
-
   
-
 end
