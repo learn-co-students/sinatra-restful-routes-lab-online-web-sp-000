@@ -25,69 +25,69 @@ describe "Recipe App" do
       expect(page.body).to include(@recipe2.name)
     end
 
-    it "contains links to each recipe's show page" do
-      all_link_hrefs = page.all(:css, "a[href]").map do |element| 
-        element[:href] 
-      end
-      expect(all_link_hrefs).to include("/recipes/#{@recipe1.id}")
-      expect(all_link_hrefs).to include("/recipes/#{@recipe2.id}")
-    end
+    # it "contains links to each recipe's show page" do
+    #   all_link_hrefs = page.all(:css, "a[href]").map do |element| 
+    #     element[:href] 
+    #   end
+    #   expect(all_link_hrefs).to include("/recipes/#{@recipe1.id}")
+    #   expect(all_link_hrefs).to include("/recipes/#{@recipe2.id}")
+    # end
 
   end
 
     
-  describe "show page '/recipes/:id'" do
-    before do
-      visit "/recipes/#{@recipe1.id}"
-    end
+  # describe "show page '/recipes/:id'" do
+  #   before do
+  #     visit "/recipes/#{@recipe1.id}"
+  #   end
 
-    it 'responds with a 200 status code' do
-      expect(page.status_code).to eq(200)
-    end
+  #   it 'responds with a 200 status code' do
+  #     expect(page.status_code).to eq(200)
+  #   end
 
-    it "displays the recipe's name" do
-      expect(page.body).to include(recipe_name)
-    end
+  #   it "displays the recipe's name" do
+  #     expect(page.body).to include(recipe_name)
+  #   end
 
-    it "displays the recipe's ingredients" do
-      expect(page.body).to include(recipe_ingredients)
-    end
+  #   it "displays the recipe's ingredients" do
+  #     expect(page.body).to include(recipe_ingredients)
+  #   end
 
-    it "displays the recipe's cook time" do
-      expect(page.body).to include(recipe_cook_time)
-    end
+  #   it "displays the recipe's cook time" do
+  #     expect(page.body).to include(recipe_cook_time)
+  #   end
 
-    it "contains a form to delete the recipe" do
-      expect(page.find(:css, "form")[:action]).to eq("/recipes/#{@recipe1.id}")
-    end
+  #   it "contains a form to delete the recipe" do
+  #     expect(page.find(:css, "form")[:action]).to eq("/recipes/#{@recipe1.id}")
+  #   end
 
-    it 'deletes via a DELETE request' do
-      expect(page.find(:css, "form input[name=_method]", :visible => false)[:value]).to match(/delete/i)
-    end
-  end
+  #   it 'deletes via a DELETE request' do
+  #     expect(page.find(:css, "form input[name=_method]", :visible => false)[:value]).to match(/delete/i)
+  #   end
+  # end
 
-  describe "edit page '/recipes/:id/edit'" do
-    before do
-      visit "/recipes/#{@recipe1.id}/edit"
-    end
+  # describe "edit page '/recipes/:id/edit'" do
+  #   before do
+  #     visit "/recipes/#{@recipe1.id}/edit"
+  #   end
 
-    it 'responds with a 200 status code' do
-      expect(page.status_code).to eq(200)
-    end
+  #   it 'responds with a 200 status code' do
+  #     expect(page.status_code).to eq(200)
+  #   end
 
-    it "contains a form to edit the recipe" do
-      expect(page.body).to include("</form>")
-    end
+  #   it "contains a form to edit the recipe" do
+  #     expect(page.body).to include("</form>")
+  #   end
 
-    it "displays the recipe's ingredients before editing" do
-      expect(page.body).to include(recipe_ingredients)
-    end
+  #   it "displays the recipe's ingredients before editing" do
+  #     expect(page.body).to include(recipe_ingredients)
+  #   end
 
-    it "submits via a patch request" do
-      expect(page.find(:css, "form input[name=_method]", :visible => false)[:value]).to match(/patch/i)
-    end
+  #   it "submits via a patch request" do
+  #     expect(page.find(:css, "form input[name=_method]", :visible => false)[:value]).to match(/patch/i)
+  #   end
 
-  end
+  # end
 
   describe "new page '/recipes/new'" do
     before do
@@ -138,52 +138,52 @@ describe "Recipe App" do
     end
   end
 
-  describe "updating a recipe" do
-    before do
-      @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
-      )
+  # describe "updating a recipe" do
+  #   before do
+  #     @cookie = Recipe.create(
+  #       name:   "Chocolate Chip Cookies", 
+  #       ingredients:  "chocolate chips, flour, sugar, butter", 
+  #       cook_time:  "30 minutes", 
+  #     )
 
-      visit "/recipes/#{@cookie.id}/edit"
+  #     visit "/recipes/#{@cookie.id}/edit"
 
-      fill_in :name, :with => "Double chocolate chip cookies"
-      fill_in :ingredients, :with => "chocolate chips, flour, sugar, butter, cocoa powder"
-      fill_in :cook_time, :with => "30 minutes"
+  #     fill_in :name, :with => "Double chocolate chip cookies"
+  #     fill_in :ingredients, :with => "chocolate chips, flour, sugar, butter, cocoa powder"
+  #     fill_in :cook_time, :with => "30 minutes"
 
-      page.find(:css, "[type=submit]").click
-    end
+  #     page.find(:css, "[type=submit]").click
+  #   end
 
-    it "updates the recipe" do
-      expect(page).to have_content("Double chocolate chip cookies")
-      expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
-      expect(page).to have_content("30 minutes")
-    end
+  #   it "updates the recipe" do
+  #     expect(page).to have_content("Double chocolate chip cookies")
+  #     expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
+  #     expect(page).to have_content("30 minutes")
+  #   end
 
-    it "redirects to the recipe show page" do
-      expect(page.current_path).to eq("/recipes/#{@cookie.id}")
-    end
+  #   it "redirects to the recipe show page" do
+  #     expect(page.current_path).to eq("/recipes/#{@cookie.id}")
+  #   end
 
-  end
+  # end
 
-  describe "deleting a recipe" do
+  # describe "deleting a recipe" do
 
-    before do
-      @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
-      )
-      visit  "/recipes/#{@cookie.id}"
+  #   before do
+  #     @cookie = Recipe.create(
+  #       name:   "Chocolate Chip Cookies", 
+  #       ingredients:  "chocolate chips, flour, sugar, butter", 
+  #       cook_time:  "30 minutes", 
+  #     )
+  #     visit  "/recipes/#{@cookie.id}"
 
-      click_button "delete"
-    end
+  #     click_button "delete"
+  #   end
 
-    it "deletes a recipe" do
-      expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
-    end
+  #   it "deletes a recipe" do
+  #     expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
+  #   end
 
-  end
+  # end
   
 end
