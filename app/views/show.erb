@@ -1,0 +1,11 @@
+<h1>Grandma's Recipes</h1>
+<% @recipes.each do |recipe|%>
+<a> <%= recipe.name %> </a>
+ <h1><%=recipe.ingredients%></h1>
+ <h1><%=recipe.cook_time.floor%> minutes</h1>
+<%end%>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
