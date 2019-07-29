@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
  end
  
  get '/recipes/:id' do
-   @recipes= Recipe.all 
+   @recipe= Recipe.find_by(params[:id])
    erb :show
  end
 
