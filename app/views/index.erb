@@ -1,3 +1,5 @@
-
+<ol>
 <% @all.each do |a| %>
-  <a href="/recipes/#{a.id}"><%= a.id+"."+a.name %></a>
+  <li><a href="/recipes/<%= a.id %>">Name: <%= a.name %></a></li>
+<% end %>
+</ol>
