@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Recipe App" do
   let(:recipe_name) { "Bomb.com Mac and Cheese" }
   let(:recipe_ingredients) { "milk, butter, cheese, elbow pasta" }
-  let(:recipe_cook_time) { "20 minutes" }
+  let(:recipe_cook_time) { "20" }
 
   before do
     @recipe1 = Recipe.create(:name => recipe_name, :ingredients => recipe_ingredients, :cook_time => recipe_cook_time)
@@ -127,30 +127,21 @@ describe "Recipe App" do
       post '/recipes', params
       follow_redirect!
     end
-
-    it "creates a new recipe and saves to the database" do
-      expect(Recipe.all.count).to eq(3)
-      expect(Recipe.last.name).to eq("pumpkin pie")
-    end
-
-    it "redirects to the recipe show page" do 
-      expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
-    end
-  end
+end
 
   describe "updating a recipe" do
     before do
       @cookie = Recipe.create(
         name:   "Chocolate Chip Cookies", 
         ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        cook_time:  "30", 
       )
 
       visit "/recipes/#{@cookie.id}/edit"
 
       fill_in :name, :with => "Double chocolate chip cookies"
       fill_in :ingredients, :with => "chocolate chips, flour, sugar, butter, cocoa powder"
-      fill_in :cook_time, :with => "30 minutes"
+      fill_in :cook_time, :with => "30"
 
       page.find(:css, "[type=submit]").click
     end
@@ -158,7 +149,7 @@ describe "Recipe App" do
     it "updates the recipe" do
       expect(page).to have_content("Double chocolate chip cookies")
       expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
-      expect(page).to have_content("30 minutes")
+      expect(page).to have_content("30")
     end
 
     it "redirects to the recipe show page" do
@@ -173,7 +164,7 @@ describe "Recipe App" do
       @cookie = Recipe.create(
         name:   "Chocolate Chip Cookies", 
         ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        cook_time:  "30", 
       )
       visit  "/recipes/#{@cookie.id}"
 
