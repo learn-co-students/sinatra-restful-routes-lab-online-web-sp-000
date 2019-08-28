@@ -10,6 +10,7 @@ gem 'rake'
 gem 'require_all'
 gem 'shotgun'
 gem 'json'
+gem "bigdecimal", ">= 1.3.2"
 
 group :test do
   gem 'rspec'
