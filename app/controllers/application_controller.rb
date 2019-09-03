@@ -13,6 +13,10 @@ get '/recipes' do
   erb :index
 end
 
+get '/recipes/new' do
+  erb :"recipes/new"
+end
+
 post '/recipes' do
 
   @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
@@ -20,9 +24,6 @@ post '/recipes' do
   redirect "/recipes/#{@recipe.id}"
 end
 
-get '/recipes/new' do
-  erb :"recipes/new"
-end
 
 get '/recipes/:id' do
   @recipe = Recipe.find_by(params[:id])
