@@ -14,7 +14,7 @@ get '/recipes' do
 end
 
 get '/recipes/new' do
-  erb :"recipes/new"
+  erb :new
 end
 
 post '/recipes' do
@@ -26,13 +26,14 @@ end
 
 
 get '/recipes/:id' do
-  @recipe = Recipe.find_by(params[:id])
-  erb :"recipes/show"
+
+  @recipe = Recipe.find_by(id: params[:id])
+  erb :show
 end
 
 get '/recipes/:id/edit' do
   @recipe = Recipe.find_by(id: params[:id])
-  erb :"recipes/edit"
+  erb :edit
 end
 
 patch '/recipes/:id' do
@@ -45,14 +46,11 @@ patch '/recipes/:id' do
   redirect to "/recipes/#{recipe.id}"
 end
 
-
-
-
-
 delete '/recipes/:id' do
-    recipe = Recipe.find_by(id: params[:id])
-    recipe.destroy
-    redirect '/recipes'
+  recipe = Recipe.find_by(id: params[:id])
+  recipe.destroy
+
+  redirect '/recipes'
 end
 
 
