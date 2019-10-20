@@ -1,0 +1,31 @@
+<!--<form action="/recipes" method="POST">-->
+<!--  <label for="name"> Recipe Name:-->
+<!--    <h1><input id="name" type="text" name="name" placeholder="Recipe Name"></h1>-->
+<!--  </label>-->
+<!--  <br>-->
+<!--  <label for="ingredients"> Ingredients:-->
+<!--    <p><textarea name="ingredients" id="ingredients" placeholder="type ingredients here"></textarea>-->
+<!--    </p>-->
+<!--  </label>-->
+<!--  <br>-->
+<!--  <label for="cook_time"> cook time:-->
+<!--    <p><input id="cook_time" type="text" name="cook_time" placeholder="cook time in minutes..."></p>-->
+<!--  </label>-->
+<!--  <br>-->
+<!--  <input id="submit" type="submit" value="Submit New Recipe">-->
+<!--</form>-->
+
+  
+<form method="POST" action="/recipes">
+  
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" />
+
+  <label for="ingredients">Ingredients</label>
+  <input type="text" id="ingredients" name="ingredients" />
+
+  <label for="cook_time">Cook Time</label>
+  <input type="text" id="cook_time" name="cook_time" />
+
+  <input type="submit" value="submit" />
+</form>
