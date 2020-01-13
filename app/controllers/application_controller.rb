@@ -5,10 +5,42 @@ class ApplicationController < Sinatra::Base
   end
 
   #Index
-  get '/' do
+  get '/recipes' do
     @recipes = Recipe.all
-    erb.index
+    erb :index
   end
+
+  #New
+  get '/recipes/new' do
+    erb :new
+  end
+
+  #Create
+  post '/recipes' do
+
+  end
+
+  #Show
+  get '/recipes/:id' do
+
+  end
+
+  #Edit
+  get '/recipes/:id/edit' do
+
+  end
+
+  #Update
+  patch '/recipes/:id' do
+
+  end
+
+  #Destroy
+  delete '/recipes/:id' do
+
+  end
+  
+
 
 
 end
