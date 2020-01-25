@@ -1,0 +1,7 @@
+<h1>Space City Eats</h1>
+<h2>Recipes</h2>
+
+<% @recipes.each do |content| %>
+  <a href="/recipes/<%= content.id %>"<%= content.name %></a>
+
+<% end %>
