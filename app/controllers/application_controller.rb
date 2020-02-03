@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
     @recipe.save
-    redirect to "/recipe/#{@recipe.id}"
+    redirect to "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
@@ -45,9 +45,9 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete '/recipes/:id/delete' do
+  delete '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
-    @recipe.delete
+    @recipe.destroy
     redirect '/recipes'
   end
 
