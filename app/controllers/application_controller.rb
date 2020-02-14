@@ -20,6 +20,8 @@ class ApplicationController < Sinatra::Base
   
   # Show page '/recipes/:id'
   get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show_recipe
   end
   
   patch '/recipes/:id' do
