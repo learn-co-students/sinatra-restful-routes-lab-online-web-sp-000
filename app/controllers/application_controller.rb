@@ -10,12 +10,18 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
   
-  post  '/recipes' do
+  post '/recipes' do
   end
   
   # new page '/recipes/new'
   get '/recipes/new' do
     erb :new_recipe
+  end
+  
+  # edit page '/recipes/:id/edit'
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit_recipe
   end
   
   # Show page '/recipes/:id'
@@ -28,9 +34,5 @@ class ApplicationController < Sinatra::Base
   end
   
   delete '/recipes/:id' do
-  end
-
-  # edit page '/recipes/:id/edit'
-  get '/recipes/:id/edit' do
   end
 end
