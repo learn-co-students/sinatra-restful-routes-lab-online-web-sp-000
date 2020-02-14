@@ -3,14 +3,11 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-
-  # # code actions here!
-  # get '/recipes' do
-  #   erb :index
-  # end
   
   # Index page '/recipes'
-  get  '/recipes' do
+  get '/recipes' do
+    @recipes = Recipe.all
+    erb :index
   end
   
   post  '/recipes' do
@@ -18,6 +15,7 @@ class ApplicationController < Sinatra::Base
   
   # new page '/recipes/new'
   get '/recipes/new' do
+    erb :new_recipe
   end
   
   # Show page '/recipes/:id'
