@@ -5,6 +5,12 @@
   <body>
     
   <form action="/recipes/<%= @recipe.id %>" method="post" > 
+    <%= @recipe.name %>
+    <%= @recipe.ingredients %>
+    <%= @recipe.cook_time %>
+    
+    
+    
     <input id="hidden" type="hidden" name="_method" value="patch">
     <label for="name">Edit name: <input type="text" id="name" name="name"></label>
     <label for="ingredients">Edit ingredients: <input type="text" id="ingredients" name="ingredients"></label>
