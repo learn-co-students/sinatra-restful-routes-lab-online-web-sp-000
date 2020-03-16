@@ -1,3 +1,4 @@
+require 'pry'
 require 'spec_helper'
 
 describe "Recipe App" do
@@ -181,6 +182,7 @@ describe "Recipe App" do
     end
 
     it "deletes a recipe" do
+      # binding.pry
       expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
 
