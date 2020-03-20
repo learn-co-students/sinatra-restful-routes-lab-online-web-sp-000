@@ -12,10 +12,7 @@ class ApplicationController < Sinatra::Base
     erb :index 
   end 
   
-  get '/recipes/:id' do
-  end 
-  
-  # render the form 
+  # render the form * Static routes must be listed before Dynamic *
   get '/recipes/new' do 
     
     erb :'/recipes/new'
@@ -27,5 +24,9 @@ class ApplicationController < Sinatra::Base
     
     
   end 
+  
+  get '/recipes/:id' do
+  end 
+
   
 end
