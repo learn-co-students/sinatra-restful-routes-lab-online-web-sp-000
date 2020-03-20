@@ -6,7 +6,6 @@ class ApplicationController < Sinatra::Base
 
   # Index route - show all recipes 
   get '/recipes' do
-    status 200
     # assigns all recipes to instance var 
     @recipes = Recipe.all 
     # render index erb 
@@ -16,17 +15,20 @@ class ApplicationController < Sinatra::Base
   # render the form * Static routes must be listed before Dynamic *
   get '/recipes/new' do 
     
-    erb :'/recipes/new'
+    erb :new
   end
   
   # create route 
   post '/recipes' do 
-    @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     
-    
+    redirect "/recipes/#{@recipe.id}"
   end 
   
   get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    
+    
   end 
 
   
