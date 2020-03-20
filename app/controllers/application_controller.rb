@@ -4,11 +4,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  # renders form to create new recipe
+  # Index route - show all recipes 
   get '/recipes' do
-    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    
+    # assigns all recipes to instance var 
+    @recipes = Recipe.all 
+    # render index erb 
     erb :index 
   end 
-
 end

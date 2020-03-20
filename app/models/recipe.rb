@@ -1,3 +1,3 @@
-class Recipe < Sinatra::Base 
+class Recipe < ActiveRecord::Base 
   
 end 
