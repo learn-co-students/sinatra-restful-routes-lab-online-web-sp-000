@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
 
   # Index route - show all recipes 
   get '/recipes' do
+    status 200
     # assigns all recipes to instance var 
     @recipes = Recipe.all 
     # render index erb 
