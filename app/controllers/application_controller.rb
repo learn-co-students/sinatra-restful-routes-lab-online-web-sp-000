@@ -2,12 +2,11 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    #set :models, 'app/models'
   end
 
   # Index route - show all recipes 
   get '/recipes' do
-    binding.pry 
+    #binding.pry 
     # assigns all recipes to instance var 
     @recipes = Recipe.all 
     # render index erb 
