@@ -2,10 +2,12 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    #set :models, 'app/models'
   end
 
   # Index route - show all recipes 
   get '/recipes' do
+    binding.pry 
     # assigns all recipes to instance var 
     @recipes = Recipe.all 
     # render index erb 
@@ -20,14 +22,13 @@ class ApplicationController < Sinatra::Base
   
   # create route 
   post '/recipes' do 
-    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+    #@recipe = Recipe.create(:name => params["name"], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     
     redirect to "/recipes/#{@recipe.id}"
   end 
   
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
-    
     
   end 
 
