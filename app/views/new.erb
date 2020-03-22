@@ -1,0 +1,20 @@
+<h2>Add a new recipe</h2>
+
+<form action="/recipes" method="POST">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" /><br />
+
+  <label for="ingredients">Ingredients: </label>
+  <input type="text" name="ingredients" id="ingredients" /><br />
+
+  <label for="cook_time">Cook Time: </label>
+  <input type="text" name="cook_time" id="cook_time" /><br />
+
+  <button
+    type="submit"
+    id="submit"
+    style="margin-top: 10px; padding: 10px 20px; border-radius: 10px;"
+  >
+    Submit
+  </button>
+</form>
