@@ -1,0 +1,24 @@
+<h1>Current: </h1>
+<h2><%= @recipe.name %></h2>
+<h2><%= @recipe.ingredients %></h2>
+<h2><%= @recipe.cook_time %></h2>
+
+<h1>Edits: </h1>
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+    <ul>
+        <li>
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name">
+        </li>
+        <li>
+            <label for="ingredients">Ingredients: </label>
+            <input id="ingredients" type="text" name="ingredients">
+        </li>
+        <li>
+            <label for="cook_time">Cook time: </label>
+            <input id="cook_time" type="text" name="cook_time">
+        </li>
+    </ul>
+    <input type="submit" value="submit">
+</form>
