@@ -2,3 +2,8 @@
 
 <p>Ingredients: <%=@recipe.ingredients%></p>
 <p>Cook time: <%=@recipe.cook_time%></p>
+<p><a href="/recipes/<%=@recipe.id%>/edit">Edit</a> this recipe</p>
+<form action="/recipes/<%=@recipe.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>
