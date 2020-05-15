@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+    <h1>Recipes</h1>
+
+    <% @recipes.each do |a|%>
+    <%= a.name%>       
+    <%= a.ingredients%> 
+    <%= a.cook_time%>    
+    <%# <%binding.pry %> %>
+    <% end%>
+
+    <%= @recipe%>
+
+    
+         <a href="/recipes/#{@recipe.id}">  </a>
+
+        <a href="/recipes/#{@recipe.name}"> </a>
+
+        <a href="/recipes/#{@recipe.ingredients}"> </a>
+
+        <a href="/recipes/#{@recipe.cook_time}"> </a>
+
+        <input type="submit" value="Show Recipe">
+    
+        
+       
+    </body>
+</html>
