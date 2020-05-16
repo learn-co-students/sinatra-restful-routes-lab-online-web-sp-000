@@ -3,11 +3,6 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-
-  # code actions here!
-  get '/' do
-    "hello"
-  end
   
   get '/recipes/new' do
     erb :new
@@ -16,20 +11,18 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes' do 
     @recipes = Recipe.all
-    # @recipe = Recipe.find_by_id(params[:id])
-    #  binding.pry
     erb :recipes
   end
 
   post '/recipes' do
-    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    redirect "/show"
+    @recipe = Recipe.create(params)
+    redirect "/recipes/#{@recipe.id}"
     
   end
 
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
-    erb :edit
+    erb :show
   end
 
   get '/recipes/:id/edit' do
@@ -47,7 +40,6 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/recipes/:id' do
-    binding.pry
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
