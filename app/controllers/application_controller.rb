@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    redirect "/recipes"
+    redirect "/show"
     
   end
 
@@ -32,29 +32,29 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  get '/recipes/:id:edit' do
+  get '/recipes/:id/edit' do
     @recipe = Recipe.find(params[:id])
     erb :edit
   end
 
 
-  # patch '/recipes/:id' do
-  #   @recipe = Recipe.find(params[:id])
-  #   @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+  patch '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     
-  #   redirect to "/recipes/#{@recipe.id}"
-  #   erb :show
-  # end
+    redirect to "/recipes/#{@recipe.id}"
+    erb :show
+  end
 
   delete '/recipes/:id' do
-    @recipe = Recipe.find_by_id(params[:id])
+    binding.pry
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
+
     erb :show
   end
 
-  get '/show' do
-    erb :show
-  end
+ 
 
 
 end
