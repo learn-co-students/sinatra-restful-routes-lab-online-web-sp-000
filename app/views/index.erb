@@ -1,0 +1,7 @@
+<h1>Show All Recipes - Index Page</h1>
+
+<% @recipes.each do |r| %>
+    <h3><%= r.name %></h3>
+    <p><a href="/recipes/<%= r.id %>">View Recipe</a></p>
+    <br>
+<% end %>
