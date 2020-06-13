@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Your Recipes!</title>
+  </head>
+  <body>
+
+  <% binding.pry %>
+
+  <%= @recipe.each do |x| %>
+    <h2><%= x.name %></h2>
+    <h2><%= x.ingredients %></h2>
+    <h2><%= x.cook_time %></h2>
+  <% end %>
+
+  </body>
+</html>
