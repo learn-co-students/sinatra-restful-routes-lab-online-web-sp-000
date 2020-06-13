@@ -5,12 +5,13 @@
   </head>
   <body>
 
-  <% binding.pry %>
 
-  <%= @recipe.each do |x| %>
+  <% @recipes.each do |x| %>
     <h2><%= x.name %></h2>
     <h2><%= x.ingredients %></h2>
     <h2><%= x.cook_time %></h2>
+    # link_to("#{x.name}", "/recipes/#{x.id}")
+    <a href="/recipes/<%= x.id %>"><%= x.name %></a>
   <% end %>
 
   </body>
