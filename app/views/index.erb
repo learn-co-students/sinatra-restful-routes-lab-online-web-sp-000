@@ -1,0 +1,10 @@
+<ol><h1>Your Recipes</h1>
+  <% if @recipes.empty? %>
+    <p>You don't have any recipes! Click <a href="/recipes/new"></a>here to create a new recipe.</p>
+    <% else %>
+    <% @recipes.each do |recipe| %>
+      <li><a href="/recipes/<%= recipe.id %>"></a>
+      <%= recipe.name %></li>
+    <% end %>
+  <% end %>
+</ol>
