@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RESTful Recipes lab</title>
+  </head>
+
+  <body>
+    <% @recipes.each do |r|%>
+      <h2>Name: <%= r.name %></h2>
+      <h4>Ingredients: <%= r.ingredients %></h4>
+      <h4>Cook Time: <%= r.cook_time %></h4>
+      <a href="/recipes/<%= r.id %>">Recipe Page</a>
+    <% end %>
+  </body>
+</html>

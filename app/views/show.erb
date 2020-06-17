@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RESTful Recipes lab</title>
+  </head>
+
+  <body>
+      <h2>Name: <%= @recipe.name %></h2>
+      <h4>Ingredients: <%= @recipe.ingredients %></h4>
+      <h4>Cook Time: <%= @recipe.cook_time %> minutes</h4>
+      <form action="/recipes/<%= @recipe.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" id="delete" value="Delete">
+      </form>
+  </body>
+</html>
