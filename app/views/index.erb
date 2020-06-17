@@ -1,5 +1,7 @@
 <h1> Live to eat, not eat to live! </h1>
 <h2> Here are your recipes to make magic happen in your kitchen! </h2>
-<% @recipes.each do |k, v| %>
-    <p><%= "#{k}: #{v}" %></p>
+<% @recipes.each do |recipe| %>
+    <p>Recipe Name<%= recipe.name %></p>
+    <p>Recipe Ingredients<%= recipe.ingredients %></p>
+    <p>Cook Time<%= recipe.cook_time %></p>
 <% end %>
