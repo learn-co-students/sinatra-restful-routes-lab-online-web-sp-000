@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Recipes </h1>
+    <% @recipes.each do |x| %>
+    <p><a href="<%= "/recipes/#{x.id}" %>"> <%= x.name %> </a> </p>
+    <% end %>
+
+    <form method="GET" action="/recipes/new">
+    <input type="submit" id="submit" value="New">
+    </form>
+
+  </body>
+</html>
