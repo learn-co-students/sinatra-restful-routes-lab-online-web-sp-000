@@ -1,0 +1,40 @@
+**Objectives**
+Build RESTful routes to create, show, edit, and delete items from the database
+
+**Instructions**
+
+#1. Create a new table in the database to store the recipes.
+   Recipes should have a:
+   * name
+   * ingredients (can be written as one string containing all the ingredients)
+   * cook_time
+
+#2. Make sure you have a corresponding model for your recipes.
+
+3. In the application_controller.rb...
+   set up a controller action that will:
+   * render a form to create a new recipe.
+   This controller action should:
+   * create
+   * save
+   a new recipe to the database.
+
+4. Again in the application_controller.rb...
+   create a controller action using **RESTful routes** to:
+   * display a single recipe
+
+5. Create a third controller action that uses RESTful routes and:
+   * renders a form to edit a single recipe.
+   This controller action should:
+   * update the entry in the database with the changes
+   * then redirect to the recipe show page
+
+6. Create a controller action (index action) that:
+   * displays all the recipes in the database
+
+7. Add to the recipe show page:
+   * a form that allows a user to delete a recipe.
+   This form should:
+   * submit to a controller action that deletes the entry from the
+     database and
+   * redirects to the index page
