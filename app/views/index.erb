@@ -1,7 +1,7 @@
 <h1> Live to eat, not eat to live! </h1>
 <h2> Here are your recipes to make magic happen in your kitchen! </h2>
 <% @recipes.each do |recipe| %>
-    <a href="/recipes/<%= recipe.id%>">Name: <%= recipe.name %></a></br>
+    <strong><a href="/recipes/<%= recipe.id%>">Name: <%= recipe.name %></a></strong></br>
     Ingredients: <%= recipe.ingredients %></br>
-    Cook time <%= recipe.cook_time %></br>
+    Cook time <%= recipe.cook_time %></br></br>
 <% end %>
