@@ -10,17 +10,22 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do
-    # display a single recipe
+    @recipe = Recipe.find_by_id(params[:id])
+    
+    erb :show
   end
 
   get '/recipes/:id/edit' do
     # update entry in the database
     # then redirect to the recipe show page
+    @recipe = Recipe.find_by_id(params[:id])
+
+    erb :edit
   end
 
   get '/recipes' do
     @recipes = Recipe.all
-    # binding.pry
+    
     erb :index
   end
 
