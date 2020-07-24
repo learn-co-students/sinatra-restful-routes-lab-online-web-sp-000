@@ -1,0 +1,13 @@
+<h1>Bomb.com Mac and Cheese</h1>
+
+<ul>
+    <%= @recipe.name  %><br>
+    <%= @recipe.ingredients  %><br>
+    <%= @recipe.cook_time  %><br>
+</ul>
+
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+</form>
+

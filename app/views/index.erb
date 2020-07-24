@@ -1,0 +1,8 @@
+<h1>Bomb.com Mac and Cheese</h1>
+<p>
+<% @recipes.map do |recipe| %>
+    <a href="/recipes/<%= recipe.id %>">
+    <%= recipe.name  %><br>
+<% end %>
+
+</p>
