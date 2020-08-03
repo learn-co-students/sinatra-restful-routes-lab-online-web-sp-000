@@ -15,12 +15,14 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>All Recipes</h1>
-        <% @recipes.each do |recipe| %>
-            <h2>Recipe Name: <%= recipe.name %></h2>
-            <p>Recipe Ingredients: <%= recipe.ingredients %></p>
-            <p>Recipe Cook Time: <%= recipe.cook_time %></p>
-        <% end %>
+        <form action="/recipes/<%= @recipe.id %>" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="patch">
+            <label for="name">Recipe Name: </label><input type="text" name="name" id="name" value="<%= @recipe.name %>"/><br>
+            <label for="ingredients">Recipe Ingredients: </label><input type="text" name="ingredients" id="ingredients" value="<%= @recipe.ingredients %>"/><br>
+            <label for="cook_time">Recipe Cook Time: </label><input type="text" name="cook_time" id="cook_time" value="<%= @recipe.cook_time %>"/><br>
+            <a href="/recipes/<%= @recipe.id %>%">Link</a>
+            <input type="submit" value="Submit"/>
+        </form>
         <script src="" async defer></script>
     </body>
 </html>
