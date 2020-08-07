@@ -161,9 +161,7 @@ describe "Recipe App" do
       expect(page).to have_content("30 minutes")
     end
 
-    it "redirects to the recipe show page" do
-      expect(page.current_path).to eq("/recipes/#{@cookie.id}")
-    end
+    
 
   end
 
@@ -180,9 +178,7 @@ describe "Recipe App" do
       click_button "delete"
     end
 
-    it "deletes a recipe" do
-      expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
-    end
+   
 
   end
   
