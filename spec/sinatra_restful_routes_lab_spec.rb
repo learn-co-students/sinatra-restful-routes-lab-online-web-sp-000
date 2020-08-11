@@ -66,6 +66,7 @@ describe "Recipe App" do
     end
   end
 
+  
   describe "edit page '/recipes/:id/edit'" do
     before do
       visit "/recipes/#{@recipe1.id}/edit"
