@@ -13,15 +13,27 @@ get '/recipes' do
 end
 
 get "/recipes/:id" do
+  @recipe=Recipe.find_by(params[:id])
   erb :show
 end
 
+delete '/recipes/:id' do
+  @recipe=Recipe.find_by(params[:id])
+  recipe.destroy
+  redirect to '/recipes'
+end
+
 get '/recipes/:id/edit' do
+  @recipe=Recipe.find_by(params[:id])
   erb :edit
 end
 
 get '/recipes/new' do
   erb :new
+end
+
+post '/recipes/new' do
+
 end
 
 
