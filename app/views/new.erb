@@ -2,10 +2,12 @@
 <html>
 <body>
 
-<form method="POST" action="/recipes/new">
-<h1><input type='text' id='name' value='Name'></h1>
-</p>Ingredients: <input type='text' id="ingredients" value="Ingredients"></p>
-<p>Cook time: <input type='text' id="cook_time" value="Cook Time"></p>
+<form method="POST" action="/recipes">
+<h1><input type='text' id='name' name='name' value='Name'/></h1>
+<p>Ingredients: <input type='text' id='ingredients' name='ingredients' value="Ingredients" /></p>
+<p>Cook time: <input type='text' id='cook_time' name='cook_time' value="Cook Time" /></p>
+
+<input type="submit" id="submit" />
 </form>
 
 </body>

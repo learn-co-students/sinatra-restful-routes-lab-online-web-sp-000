@@ -3,6 +3,7 @@
 <body>
 <h1>All Our Recipes!</h1>
 <ul>
+    
     <% Recipe.all.each do |info|%>
     <li><a href="/recipes/<%= info.id %>"><%= info.name %> </a></li>
     <%end%>

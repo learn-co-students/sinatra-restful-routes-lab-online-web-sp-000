@@ -12,29 +12,36 @@ get '/recipes' do
   erb :index
 end
 
-get "/recipes/:id" do
-  @recipe=Recipe.find_by(params[:id])
-  erb :show
-end
-
-delete '/recipes/:id' do
-  @recipe=Recipe.find_by(params[:id])
-  recipe.destroy
+get '/recipes/' do
   redirect to '/recipes'
-end
-
-get '/recipes/:id/edit' do
-  @recipe=Recipe.find_by(params[:id])
-  erb :edit
 end
 
 get '/recipes/new' do
   erb :new
 end
 
-post '/recipes/new' do
-
+get "/recipes/:id" do
+  @recipe=Recipe.find(params[:id])
+  erb :show
 end
+
+post '/recipes' do
+  @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+  redirect to '/recipes/#{@recipe.id}'
+end
+
+delete '/recipes/:id' do
+  @recipe=Recipe.find(params[:id])
+  recipe.destroy
+  redirect to '/recipes'
+end
+
+get '/recipes/:id/edit' do
+  @recipe=Recipe.find(params[:id])
+  erb :edit
+end
+
+
 
 
 
