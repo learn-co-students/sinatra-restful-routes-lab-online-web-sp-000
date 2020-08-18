@@ -4,9 +4,11 @@
 
 <form method="POST" action="/recipes/<%= @recipe.id %>">
 <input type="hidden" name="_method" value="PATCH">
-<h1><input type='text' id='name' value='<%= @recipe.name %>'></h1>
-</p>Ingredients: <input type='text' id="ingredients" value="<%= @recipe.ingredients %>"></p>
-<p>Cook time: <input type='text' id="cook_time" value="<%= @recipe.cook_time %>"></p>
+<h1><input type='text' name='name' id='name' value='<%= @recipe.name %>'></h1>
+</p>Ingredients: <input type='text' name='ingredients' id="ingredients" value="<%= @recipe.ingredients %>"></p>
+<p>Cook time: <input type='text' name='cook_time' id="cook_time" value="<%= @recipe.cook_time %>"></p>
+
+<input type="submit" name="submit" id="submit">
 </form>
 
 </body>
