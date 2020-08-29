@@ -1,0 +1,11 @@
+<%
+# resp = Rack::Response.new
+# resp.write "FOO"
+# resp.write @recipes.size
+@recipes.each do |recipe|
+%>
+<%=recipe.name%> <a href="<%="/recipes/#{recipe.id}"%>">link</a>
+<%
+end
+# resp.finish
+%>
