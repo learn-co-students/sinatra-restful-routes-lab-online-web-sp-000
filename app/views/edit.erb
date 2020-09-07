@@ -1,0 +1,9 @@
+<%# <%binding.pry%> %>
+<form action="/recipes/<%=@recipe.id%>" method="post">
+    <input type="text" name="name" placeholder="<%=@recipe.name%>">
+    <input type="text" name="ingredients" placeholder="<%=@recipe.ingredients%>">
+    <input type="text" name="cook_time" placeholder="<%=@recipe.cook_time%>">
+
+    <input type="hidden" name="_method" value="patch">
+    <input type="submit" value="Submit">
+</form>
