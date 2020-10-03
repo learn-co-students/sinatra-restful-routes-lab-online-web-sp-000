@@ -1,0 +1,9 @@
+<h1>Here is your virtual cookbook -- bon appetite!</h1>
+
+<ul>
+    <% @recipes.each do |recipe| %>
+        <a href="/recipes/<%= recipe.id %>">
+            <p><li><%= recipe.name %></li></p>
+        </a>
+    <% end %>
+</ul>
