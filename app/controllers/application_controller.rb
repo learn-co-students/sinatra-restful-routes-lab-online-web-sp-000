@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/recipes/:id" do
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find_by(params)
     erb :show
   end
 
@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
     @recipe.save
-    erb :show #why doesn't this work?: redirect to "/recipes/#{@recipe.id}"
+    redirect to "/recipes/#{@recipe.id}"
   end
 
   delete "/recipes/:id" do
