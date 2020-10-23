@@ -1,0 +1,10 @@
+# this view displays all the recipes in the database.
+
+<h1>All Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <h3>Recipe Name: <%= recipe.name %></h3>
+  <h3>Ingredients: <%= recipe.ingredients %></h3>
+  <h3>Cook Time: <%= recipe.cook_time %></h3>
+  <a href="/recipes/#{recipe.id}">Recipe Link</a>
+<% end %>
