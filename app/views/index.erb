@@ -1,0 +1,14 @@
+<h2> Virtual Cookbook </h2>
+
+<h3>List of Recipes:</h3>
+<ul>
+<% @recipes.each do |recipe| %>
+  <li>
+    Name: <a href= "/recipes/<%= recipe.id %>"> <%= recipe.name %></a>
+    <br>
+    Ingredients: <%= recipe.ingredients %>
+    <br>
+    Cook Time: <%= recipe.cook_time %>
+  </li>
+<% end %>
+<ul>
