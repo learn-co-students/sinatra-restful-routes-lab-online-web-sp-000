@@ -1,5 +1,5 @@
 <h1>Your Saved Recipes</h1>
 <% @recipes.each do | sel | %>
     <h3><%= sel.name %></h3>
-    <h4><a href = "/recipes/#{sel.id}" Click here for more>
+    <h4><a href = "/recipes/<%= sel.id %>" Click here for more>
 <% end %>

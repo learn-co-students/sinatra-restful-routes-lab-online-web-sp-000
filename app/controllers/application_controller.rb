@@ -11,34 +11,47 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/recipes/new' do 
+    erb :new
+  end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id].to_i)
+    erb :edit
+  end
+
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id].to_i)
     #binding.pry
     erb :recipe 
   end
 
-  get '/recipes/new' do 
-    erb :new
-  end
-
-  post '/new' do
-    recipe = Recipe.create(:name => params[:name], :ingredients => params[:in], :cook_time => params[:cookTime])
-    redirect "/recipes/#{recipe.id}"
-  end
-
-  get '/recipes/edit/:id' do
-    @recipe = Recipe.find(params[:id].to_i)
-    erb :edit
-  end
-
-  post "edit" do
-    
-  end
-
-  get "/delete/:id" do
+  delete "/recipes/:id" do
     @recipe = Recipe.find(params[:id].to_i)
     @recipe.delete
-    redirect '/recipes'
+    redirect to '/recipes'
+  end
+
+  post '/recipes' do
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+   # binding.pry
+    redirect to "/recipes/#{@recipe.id}"
+  end
+
+  post '/recipes/new' do
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+   # binding.pry
+    redirect to "/recipes/#{@recipe.id}"
+  end
+
+  patch "/recipes/:id/edit" do
+    @updated = Recipe.find(params[:id])
+    @updated.name = params[:name]
+    @updated.ingredients = params[:ingredients]
+    @updated.cook_time = params[:cook_time]
+    @updated.save
+   # binding.pry
+    redirect to "/recipes/#{@updated.id}"
   end
 
 end
