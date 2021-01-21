@@ -14,7 +14,7 @@ describe "Recipe App" do
 
     before do
       visit "/recipes"
-    end
+    end 
 
     it 'responds with a 200 status code' do
       expect(page.status_code).to eq(200)
