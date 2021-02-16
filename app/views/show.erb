@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+  </head>
+  <body id="page-top">
+    <h1><% @recipe.name %></h1>
+    <form method="post" action="/recipes/<%= @recipe.id %>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+        <p><%= @recipe.name %> <%= @recipe.ingredients %> <%= @recipe.cook_time %></p>
+
+        <input type="submit" id="delete" value="delete">
+    </form>
+  </body>
+</html>

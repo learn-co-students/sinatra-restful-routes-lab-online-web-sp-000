@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+  </head>
+  <body id="page-top">
+    <h1>Welcome to Recipes</h1>
+
+        <% @recipes.each do |recipe|%>
+            <a href="/recipes/<%= recipe.id %>"><p><%= recipe.name %> <%= recipe.ingredients %> <%= recipe.cook_time %></p></a>
+        <% end %>
+        <input type="submit" id="submit" value="Log In">
+
+  </body>
+</html>
