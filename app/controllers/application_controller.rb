@@ -31,7 +31,7 @@ get '/recipes/:id/edit' do
   @recipe = Recipe.find_by(params[:id])
   erb :edit
 end
-#not sure if I need the patch one
+
 patch '/recipes/:id' do
   @recipe = Recipe.find_by(params[:id])
   @recipe.name = params[:name]
@@ -41,5 +41,10 @@ patch '/recipes/:id' do
   redirect to "/recipes/#{@recipe.id}"
 end
 
+delete '/recipes/:id' do
+  @recipe = Recipe.find_by(params[:id])
+  @recipe.delete
+  redirect to "/recipes"
+end
 
 end
