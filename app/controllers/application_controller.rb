@@ -13,8 +13,8 @@ get '/recipes/new' do
 end
 
 post '/recipes' do
-  @recipe = Recipe.new(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-  redirect to '/recipes/new'
+  @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+  redirect "/recipes/#{@article.id}"
 end
 
 get '/recipes' do
@@ -41,6 +41,5 @@ patch '/recipes/:id' do
   redirect to "/recipes/#{@recipe.id}"
 end
 
-  # code actions here!
 
 end
