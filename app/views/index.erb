@@ -1,0 +1,6 @@
+<h1>Select a recipe to view below:</h1>
+<% @recipes.each do |recipe| %>
+<h2><%= recipe.name %></h2>
+<a href="/recipes/#{recipe.id}">Show Recipe</a> <!-- html doesn't need any tags within .erb file -->
+<% end %>
+
