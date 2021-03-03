@@ -1,0 +1,4 @@
+<h2>Here is a list of recipes, each with a link to its own page</h2>
+<% @recipes.each_with_index do |recipe, index|%>
+<h3>Recipe: <%= recipe.name%> and its page <a href=<%= "/recipes/#{recipe.id}"%>>Here's the link</a></h3><br>
+<% end %>
