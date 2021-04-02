@@ -1,0 +1,8 @@
+recipe1 = Recipe.create(name: 'Pie', ingredients: 'Crust, Filling', cook_time: '45 mins')
+recipe3 = Recipe.create(name: 'Burrito', ingredients: 'Tortilla, Filling', cook_time: '10 mins')
+recipe2 = Recipe.create(name: 'Sammy', ingredients: 'Bread, Filling', cook_time: '5 mins')
+recipe4 = Recipe.create(name: 'English Bulldog', ingredients: 'UnderBite, Block Head, Duck Feet, Smashed Face', cook_time: 'A Couple Few Months')
+recipe5 = Recipe.create(name: 'Hard Boiled Egg', ingredients: 'Egg, Water', cook_time: '20 mins')
+recipe6 = Recipe.create(name: 'Seitan', ingredients: 'Vital Wheat Gluten, Spices, Anger', cook_time: '1 Day')
+recipe7 = Recipe.create(name: 'Oatmeal', ingredients: 'Steel Cut Oats, Water, Salt, Sugar, Almond Milk', cook_time: '30 mins')
+recipe8 = Recipe.create(name: 'Boiled Peanuts', ingredients: '3% Salt Brine, Cajun Seasoning', cook_time: '1 day')
