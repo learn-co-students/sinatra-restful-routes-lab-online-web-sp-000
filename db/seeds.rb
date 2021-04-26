@@ -1,0 +1,1 @@
+user1 = Recipe.create(:name => "skittles123", :ingredients => "iluvskittles", :cook_time => "Longaf")
