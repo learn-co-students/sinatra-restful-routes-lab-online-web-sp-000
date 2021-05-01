@@ -1,9 +1,9 @@
-<form method="POST" action="/recipes">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name"/><br>
-    <label for="name">Ingredients</label>
-    <input type="text" id="ingredients" name="ingredients"/><br>
-    <label for="name">Cook Time</label>
-    <input type="text" id="cook_time" name="cook_time"/><br>
-    <input type="submit" value="Submit"/>
-</form>
+<ul>
+<% @recipes.each do |recipe|%>
+  <li>
+    <a href="/recipes/<%= recipe.id %>">Name: <%= recipe.name %></a>
+    Ingredients: <%= recipe.ingredients %>
+    Cook time <%= recipe.cook_time %>
+  </li>
+<% end %>
+</ul>
