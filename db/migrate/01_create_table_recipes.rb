@@ -1,4 +1,4 @@
-class CreateTableRecipes < ActiveRecord::Migration[4.2]
+class CreateTableRecipes < ActiveRecord::Migration
 
   def change
     create_table :recipes do |t|
