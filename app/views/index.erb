@@ -1,0 +1,9 @@
+These are your recipes
+<br>
+<%@recipes.each do |recipe|%>
+<a href="/recipes/<%=recipe.id%>">
+  <h1><%= recipe.name%></h1></a>
+  <%end%>
+
+Enter New Recipes Here
+<a href="/recipes/new">New Recipes</a>
